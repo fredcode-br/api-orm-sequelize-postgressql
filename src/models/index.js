@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 const fs = require('fs');
@@ -17,6 +18,7 @@ if (config.use_env_variable) {
 }
 
 fs
+
   .readdirSync(__dirname)
   .filter(file => {
     return (

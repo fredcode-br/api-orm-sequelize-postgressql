@@ -1,5 +1,4 @@
 /* eslint-disable no-empty */
-
 const Controller = require('./Controller');
 const PersonServices = require('../services/PersonServices');
 
@@ -9,8 +8,6 @@ class PersonController extends Controller {
   constructor() {
     super(personServices);
   }
-  
-
 }
 
 module.exports = PersonController;

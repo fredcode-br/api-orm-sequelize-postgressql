@@ -17,7 +17,7 @@ class Controller {
     try {
       const register = await this.serviceEntity.getOneByID(Number(id));
       return res.status(200).json(register);
-    } catch (erro) {
+    } catch (error) {
       return res.status(500).send('Internal Server Error');
     }
   }
@@ -25,9 +25,10 @@ class Controller {
   async create(req, res) {
     const data = req.body;
     try {
-      const newRegister = await this.serviceEntity.create(data);
+      const newRegister = await this.serviceEntity.createRegister(data);
       return res.status(200).json(newRegister);
-    } catch (erro) {
+    } catch (error) {
+      console.log(error);
       return res.status(500).send('Internal Server Error');
     }
   }
@@ -36,12 +37,12 @@ class Controller {
     const { id } = req.params;
     const data = req.body;
     try {
-      const updatedData = await this.serviceEntity.update(data, Number(id));
+      const updatedData = await this.serviceEntity.updateRegister(data, Number(id));
       if (!updatedData) {
         return res.status(400).json({ mensagem: 'Registro não foi atualizado' });
       }
       return res.status(200).json({ mensagem: 'Atualizado com sucesso' });
-    } catch (erro) {
+    } catch (error) {
       return res.status(500).send('Internal Server Error');
     }
   }
@@ -49,7 +50,7 @@ class Controller {
   async delete(req, res) {
     const { id } = req.params;
     try {
-      await this.serviceEntity.delete(Number(id));
+      await this.serviceEntity.deleteRegister(Number(id));
       return res.status(200).json({ mensagem: `Id ${id} deletado` });
 
 

@@ -10,15 +10,15 @@ class Services {
   }
   
   async getOneById(id) {
-    return dataSource[this.model].findByPk(id);
+    return dataSource[this.modelName].findByPk(id);
   }
 
-  async create(data) {
-    return dataSource[this.model].create(data);
+  async createRegister(data) {
+    return dataSource[this.modelName].create(data);
   }
 
-  async update(updatedData, id) {
-    const updatedRegistersList = dataSource[this.model].update(updatedData, {
+  async updateRegister(updatedData, id) {
+    const updatedRegistersList = dataSource[this.modelName].update(updatedData, {
       where: { id: id }
     });
     if (updatedRegistersList[0] === 0) {
@@ -27,8 +27,8 @@ class Services {
     return true;
   }
 
-  async delete(id) {
-    return dataSource[this.model].destroy({ where: { id: id } });
+  async deleteRegister(id) {
+    return dataSource[this.modelName].destroy({ where: { id: id } });
   }
 
 }   
