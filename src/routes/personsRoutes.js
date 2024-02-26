@@ -11,6 +11,4 @@ router.post('/persons', (req, res) => personController.create(req, res));
 router.put('/persons/:id', (req, res) => personController.update(req, res));
 router.delete('/persons/:id', (req, res) => personController.delete(req, res));
 
-
-
 module.exports = router;
